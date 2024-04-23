@@ -1,0 +1,75 @@
+/* Cards CSS */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .card {
+    width: calc(25% - 40px); /* Subtracting the total gap from the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: rotateY(10deg);
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-title {
+    margin: 0;
+    color: #333;
+  }
+  
+  .card-text {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  button:hover {
+    background-color: #005f73;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .card {
+      width: calc(50% - 40px); /* Adjust for tablet */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: calc(100% - 40px); /* Adjust for mobile */
+    }
+  }
+  
+  .navbar a:not(:first-child) {
+    float: right; /* Align nav items to the right, except for the first one */
+  }
+  

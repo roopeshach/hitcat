@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NT Cultural and Natural Heritage - Destinations</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="index.html">NT Heritage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+   
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h2 class="page-title text-center">Explore NT Destinations</h2>
+    <p class="text-center subtitle">Discover the cultural and natural wonders of the Northern Territory.</p>
+    <!-- Generic Modal -->
+    <div class="modal fade" id="dynamicModal" tabindex="-1" role="dialog" aria-labelledby="dynamicModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog " role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="dynamicModalLabel">Modal </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Cultural Heritage Card -->
+        <div class="card-container">
+          <div onclick="learnMore('Uluru')" class="card">
+            <img class="card-img-top" src="uluru.jpeg"
+              alt="Uluru, a significant cultural site for the Indigenous peoples.">
+            <div class="card-body">
+              <h5 class="card-title">Uluru</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('KingsCanyon')" class="card">
+            <img class="card-img-top" src="kings-canyon.jpeg" alt="Kings Canyon's rugged landscape.">
+            <div class="card-body">
+              <h5 class="card-title">Kings Canyon</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('LitchfieldPark')" class="card">
+            <img class="card-img-top" src="litchfield-park.jpeg" alt="Litchfield Park's stunning waterfalls.">
+            <div class="card-body">
+              <h5 class="card-title">Litchfield Park</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('TheOlgas')" class="card">
+            <img class="card-img-top" src="the-olgas.jpeg" alt="The Olgas' ancient rock formations.">
+            <div class="card-body">
+              <h5 class="card-title">The Olgas</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Natural Heritage Card -->
+        <div class="card-container">
+          <div onclick="learnMore('Kakadu')" class="card">
+            <img class="card-img-top" src="kakadu.jpg" alt="Kakadu National Park's diverse natural beauty.">
+            <div class="card-body">
+              <h5 class="card-title">Kakadu National Park</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('GreatBarrierReef')" class="card">
+            <img cl ss="card-img-top" src="great-barrier-reef.jpeg" alt="The Great Barrier Reef's vibrant marine life.">
+            <div class="card-body">
+              <h5 class="card-title">Great Barrier Reef</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('SydneyOperaHouse')" class="card">
+            <img class="card-img-top" src="opera.jpeg" alt="The OPera House">
+            <div class="card-body">
+              <h5 class="card-title">The Opera House</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('DaintreeRainforest')" class="card">
+            <img class="card-img-top" src="daintree-rainforest.jpeg" alt="The lush greenery of Daintree Rainforest.">
+            <div class="card-body">
+              <h5 class="card-title">Daintree Rainforest</h5>
+           </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+
+      <div class="col-md-4">
+        <div class="card-container">
+          <div onclick="learnMore('BondiBeach')" class="card">
+            <img class="card-img-top" src="bondi-beach.jpeg" alt="The clear blue waters and busy sands of Bondi Beach.">
+            <div class="card-body">
+              <h5 class="card-title">Bondi Beach</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card-container">
+          <div onclick="learnMore('BlueMountains')" class="card">
+            <img class="card-img-top" src="blue-mountains.jpeg" alt="The misty landscape of the Blue Mountains.">
+            <div class="card-body">
+              <h5 class="card-title">Blue Mountains</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2024 by Amar Tamang. All rights reserved.</span>
+    </div>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
