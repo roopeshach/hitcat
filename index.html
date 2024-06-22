@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishes Gallery</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Explore the unique flavors of Australian and Nepali cuisines through our interactive dish gallery. Click to learn more about each dish's ingredients and cultural significance.">
+    <meta name="robots" content="index, follow">
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">World Cuisine</a>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid bg-danger text-white border-bottom">
+        <div class="container card bg-primary p-5  text-white ">
+            <h1 class="display-4">Culinary Delights from Down Under and the Himalayas</h1>
+            <p class="lead">Explore a vibrant collection of dishes that define the culinary landscapes of Australia and Nepal.</p>
+            <hr class="my-4">
+            <p>This interactive gallery lets you discover the unique flavors and stories behind each dish. Click on any card to learn more about the ingredients, history, and cultural significance of these beloved recipes.</p>
+        </div>
+    </div>
+    
+
+    <div class="container mt-5">
+        <h1 class="text-primary m-2 display-4 text-center">
+            View Our Cusines
+        </h1>
+        <hr>
+        <div class="row" id="dishesContainer"></div>
+    </div>
+
+    <!-- Modal Template -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="dishTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dishTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" id="dishImage" class="img-fluid">
+                    <p id="dishDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About This Project</h5>
+                    <p class="small">This project showcases a diverse range of dishes from Australia and Nepal, aiming to promote cultural understanding and culinary appreciation.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: info@culinarydelights.com</li>
+                        <li>Phone: +123 456 7890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center text-md-right small">
+                    © 2024 Culinary Delights - All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const dishes = [
+        { name: 'Meat Pie', description: 'A classic Australian dish, featuring a flaky pastry filled with minced meat and gravy.', image: 'images/meat-pie.jpg' },
+    { name: 'Vegemite on Toast', description: 'An iconic Australian spread made from leftover brewers yeast extract with various vegetable and spice additives.', image: 'images/vegemite-toast.jpeg' },
+    { name: 'Lamingtons', description: 'Sponge cake squares coated in chocolate sauce and rolled in desiccated coconut, a beloved Australian treat.', image: 'images/lamingtons.jpg' },
+    { name: 'Pavlova', description: 'A meringue-based dessert named after the Russian ballerina Anna Pavlova, with a crisp crust and soft, light inside, usually topped with fruit and whipped cream.', image: 'images/pavlova.jpeg' },
+    { name: 'Barramundi', description: 'Popular Australian fish dish, often grilled and served with a range of seasonings or sauces.', image: 'images/barramundi.jpeg' },
+    { name: 'Chiko Roll', description: 'Australian snack inspired by the Chinese egg roll and filled with ingredients such as minced meat, cabbage, carrot, and spices.', image: 'images/chiko-roll.jpeg' },
+
+    { name: 'Momo', description: 'Nepalese dumplings filled with meat or vegetables, usually served with a dipping sauce.', image: 'images/momo.jpg' },
+    { name: 'Dal Bhat', description: 'A traditional Nepali dish consisting of steamed rice and a cooked lentil soup.', image: 'images/dal-bhat.jpg' },
+    { name: 'Sel Roti', description: 'Traditional homemade, sweet, ring-shaped rice bread/doughnut from Nepal.', image: 'images/sel-roti.jpg' },
+    { name: 'Gundruk', description: 'A popular Nepali dish consisting of fermented leafy green vegetables served as a side dish with meals or as an appetizer.', image: 'images/gundruk.jpg' },
+    { name: 'Chatamari', description: 'Often referred to as Nepali pizza, this is a traditional Newari festive dish made of rice flour crepe which includes toppings like chopped onions, coriander, minced meat, and eggs.', image: 'images/chatamari.jpeg' },
+    { name: 'Yomari', description: 'A delicacy of the Newar community in Nepal, this steamed dumpling is made of rice flour dough and filled with molasses and sesame seeds.', image: 'images/yomari.jpeg' }
+        ];
+
+        function generateCards() {
+            const container = document.getElementById('dishesContainer');
+            dishes.forEach((dish, index) => {
+                const html = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card" data-index="${index}" data-toggle="modal" data-target="#detailModal">
+                            <img class="card-img-top" src="${dish.image}" alt="${dish.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${dish.name}</h5>
+                                <p class="card-text">${dish.description.substring(0, 100)}...</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function setupModal() {
+            $('#detailModal').on('show.bs.modal', function (event) {
+                const card = $(event.relatedTarget); // Button that triggered the modal
+                const index = card.data('index'); // Extract info from data-* attributes
+                const dish = dishes[index];
+                
+                const modal = $(this);
+                modal.find('.modal-title').text(dish.name);
+                modal.find('.modal-body #dishImage').attr('src', dish.image);
+                modal.find('.modal-body #dishDescription').text(dish.description);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCards();
+            setupModal();
+        });
+    </script>
+</body>
+</html>
